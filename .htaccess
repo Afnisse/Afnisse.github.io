@@ -1,0 +1,11 @@
+
+RewriteEngine On
+RewriteBase /
+
+# redirect any domain other than www.domain.com to www.domain.com
+RewriteCond %{HTTP_HOST} !^www\.afnisse\.com$ [NC]
+RewriteRule ^(.*)$ https://www.afnisse.com/$1 [L,R=301]
+
+# force https on www.domain.com
+RewriteCond %{HTTPS} ^off
+RewriteRule ^(.*)$ https://www.afnisse.com/$1 [L,R=301]
